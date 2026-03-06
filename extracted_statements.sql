@@ -1,0 +1,72 @@
+-- ============================================================================
+-- Extracted SQL Statements Catalog
+-- Project: BobsBookstore - SQL Server to PostgreSQL Migration
+-- Date: 2026-03-06
+-- ============================================================================
+--
+-- RESULT: No raw SQL statements were found in the codebase.
+--
+-- This application uses Entity Framework Core with LINQ-based data access
+-- exclusively. All database queries are generated automatically by the
+-- Npgsql EF Core provider (Npgsql.EntityFrameworkCore.PostgreSQL v8.0.0).
+--
+-- ============================================================================
+-- COMPREHENSIVE SEARCH REPORT
+-- ============================================================================
+--
+-- The following patterns were searched for across ALL .cs files under app/:
+--
+-- 1. Inline SQL Strings:
+--    Pattern: "SELECT ", "INSERT ", "UPDATE ", "DELETE ", "CREATE ", "ALTER ",
+--             "DROP ", "EXEC "
+--    Result: 0 matches
+--
+-- 2. String Concatenation SQL:
+--    Pattern: String concatenation with SQL keywords
+--    Result: 0 matches
+--
+-- 3. Parameterized SQL:
+--    Pattern: SQL strings with @parameter syntax
+--    Result: 0 matches
+--
+-- 4. StringBuilder-Constructed SQL:
+--    Pattern: StringBuilder with SQL keywords
+--    Result: 0 matches
+--
+-- 5. EF Core Raw SQL Methods:
+--    Pattern: FromSqlRaw, ExecuteSqlRaw, ExecuteSqlInterpolated
+--    Result: 0 matches
+--
+-- 6. ADO.NET Direct SQL:
+--    Pattern: SqlCommand, CommandText, SqlConnection, SqlDataReader, SqlParameter
+--    Result: 0 matches
+--
+-- 7. SQL Server Client Libraries:
+--    Pattern: Microsoft.Data.SqlClient, System.Data.SqlClient
+--    Result: 0 matches
+--
+-- 8. Other Data Access Patterns:
+--    Pattern: Dapper, DbCommand, DbConnection, SqlQuery
+--    Result: 0 matches
+--
+-- ============================================================================
+-- FILES SEARCHED
+-- ============================================================================
+--
+-- All .cs files under:
+--   - app/Bookstore.Data/ (ApplicationDbContext.cs, SeedData.cs, PaginatedList.cs,
+--     Repositories/*.cs)
+--   - app/Bookstore.Web/ (Startup/*.cs, Controllers/*.cs, Areas/Admin/Controllers/*.cs,
+--     Helpers/*.cs)
+--   - app/Bookstore.Domain/ (all entity classes)
+--   - app/Bookstore.Cdk/ (all CDK stack files)
+--   - app/Bookstore.Domain.Tests/ (all test files)
+--
+-- ============================================================================
+-- CONCLUSION
+-- ============================================================================
+--
+-- Zero SQL statements extracted. The application relies entirely on EF Core
+-- LINQ queries for database access. The Npgsql provider generates all
+-- PostgreSQL-compatible SQL at runtime.
+-- ============================================================================

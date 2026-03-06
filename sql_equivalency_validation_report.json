@@ -1,0 +1,48 @@
+{
+  "number_of_statements_processed": 0,
+  "number_of_statements_equivalent": 0,
+  "number_of_statements_non_equivalent": 0,
+  "number_of_statements_with_equivalency_error": 0,
+  "statement_details": [],
+  "summary": {
+    "description": "This application uses Entity Framework Core with LINQ-based data access exclusively. No raw SQL statements (inline SQL, FromSqlRaw, ExecuteSqlRaw, ExecuteSqlInterpolated, SqlCommand, CommandText, etc.) were found in the codebase. All database queries are generated automatically by the Npgsql EF Core provider, which was already configured prior to this transformation. Therefore, no SQL statements required extraction, conversion via DMS, or equivalency validation.",
+    "analysis_details": {
+      "search_patterns_used": [
+        "FromSqlRaw",
+        "ExecuteSqlRaw",
+        "ExecuteSqlInterpolated",
+        "SqlCommand",
+        "SqlConnection",
+        "SqlDataReader",
+        "SqlParameter",
+        "SqlTransaction",
+        "CommandText",
+        "DbCommand",
+        "DbConnection",
+        "Microsoft.Data.SqlClient",
+        "System.Data.SqlClient",
+        "Dapper",
+        "StringBuilder SQL construction",
+        "Inline SQL string literals (SELECT, INSERT, UPDATE, DELETE, CREATE, ALTER, DROP, EXEC)"
+      ],
+      "files_searched": "All .cs files under app/ directory (Bookstore.Data, Bookstore.Web, Bookstore.Domain, Bookstore.Cdk, Bookstore.Domain.Tests)",
+      "result": "No matches found for any SQL statement patterns"
+    },
+    "migration_status": {
+      "packages_migrated": true,
+      "packages_details": "Npgsql.EntityFrameworkCore.PostgreSQL v8.0.0 in Bookstore.Data.csproj and Bookstore.Web.csproj. No SQL Server packages found.",
+      "imports_migrated": true,
+      "imports_details": "using Npgsql in ServicesSetup.cs; using Npgsql.EntityFrameworkCore.PostgreSQL in ApplicationDbContext.cs. No SQL Server imports found.",
+      "ado_net_classes_migrated": true,
+      "ado_net_details": "NpgsqlConnectionStringBuilder used in ServicesSetup.cs. No SqlConnection/SqlCommand/SqlDataReader/SqlParameter references found.",
+      "connection_strings_migrated": true,
+      "connection_strings_details": "appsettings.Test.json uses Host=localhost;Database=postgres;Username=postgres;Password=password. ServicesSetup.cs uses NpgsqlConnectionStringBuilder with Host, Port, Database, Username, Password.",
+      "dbcontext_migrated": true,
+      "dbcontext_details": "ApplicationDbContext uses UseNpgsql() in ServicesSetup.cs. Npgsql.EnableLegacyTimestampBehavior set to true.",
+      "cdk_infrastructure_migrated": true,
+      "cdk_details": "DatabaseStack.cs provisions PostgreSQL with port 5432, DatabaseInstanceEngine.Postgres VER_13, db.t3.micro instance."
+    },
+    "data_access_approach": "Entity Framework Core LINQ queries (Where, Include, SingleAsync, FindAsync, GroupBy, Select, OrderBy, ThenBy, etc.) with Npgsql.EntityFrameworkCore.PostgreSQL provider",
+    "ef_core_provider": "Npgsql.EntityFrameworkCore.PostgreSQL v8.0.0 (configured with UseNpgsql())"
+  }
+}

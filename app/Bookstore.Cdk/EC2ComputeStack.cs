@@ -186,7 +186,7 @@ public class EC2ComputeStack : Stack
         });
         webAppSecurityGroup.AddIngressRule(Peer.AnyIpv4(), Port.Tcp(80), "HTTP access");
         webAppSecurityGroup.AddIngressRule(Peer.AnyIpv4(), Port.Tcp(443), "HTTPS access");
-        webAppSecurityGroup.Connections.AllowTo(props.Database, Port.Tcp(1433), "Database");
+        webAppSecurityGroup.Connections.AllowTo(props.Database, Port.Tcp(5432), "PostgreSQL Database");
 
         this.Instance = new Instance_(this, "WebServer", new Amazon.CDK.AWS.EC2.InstanceProps
         {

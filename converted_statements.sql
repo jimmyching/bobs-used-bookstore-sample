@@ -1,0 +1,58 @@
+-- ============================================================================
+-- Converted SQL Statements Catalog
+-- Project: BobsBookstore - SQL Server to PostgreSQL Migration
+-- Date: 2026-03-06
+-- ============================================================================
+--
+-- RESULT: No SQL conversion was needed.
+--
+-- This application uses Entity Framework Core with LINQ-based data access
+-- exclusively. No raw SQL statements were found in the codebase that
+-- required conversion via the DMS MCP tool.
+--
+-- All database queries are generated automatically by the Npgsql EF Core
+-- provider (Npgsql.EntityFrameworkCore.PostgreSQL v8.0.0), which was already
+-- configured with UseNpgsql() prior to this transformation.
+--
+-- ============================================================================
+-- CONVERSION SUMMARY
+-- ============================================================================
+--
+-- Total statements extracted:         0
+-- Total statements converted by DMS:  0
+-- Total statements manually converted: 0
+-- Total statements validated:         0
+--
+-- ============================================================================
+-- MIGRATION STATUS
+-- ============================================================================
+--
+-- The following migration changes were already in place:
+--
+-- 1. Package References:
+--    - Npgsql.EntityFrameworkCore.PostgreSQL v8.0.0 (Bookstore.Data.csproj)
+--    - Npgsql.EntityFrameworkCore.PostgreSQL v8.0.0 (Bookstore.Web.csproj)
+--    - No Microsoft.EntityFrameworkCore.SqlServer packages present
+--    - No Microsoft.Data.SqlClient packages present
+--    - No System.Data.SqlClient packages present
+--
+-- 2. Database Access Code:
+--    - ApplicationDbContext uses UseNpgsql() for provider configuration
+--    - NpgsqlConnectionStringBuilder used for connection string building
+--    - Npgsql.EnableLegacyTimestampBehavior enabled for timestamp compatibility
+--    - All entities mapped to PostgreSQL schema (bobsusedbookstore_dbo)
+--    - All column names mapped to lowercase PostgreSQL conventions
+--
+-- 3. Connection Strings:
+--    - appsettings.Test.json: Host=localhost;Database=postgres;Username=postgres
+--    - Production: NpgsqlConnectionStringBuilder with Host, Port, Database,
+--      Username, Password from AWS Secrets Manager
+--
+-- 4. CDK Infrastructure:
+--    - DatabaseStack.cs provisions PostgreSQL (port 5432)
+--    - DatabaseInstanceEngine.Postgres with VER_13
+--    - Instance type: db.t3.micro (free tier eligible)
+--
+-- No statements were passed through the DMS MCP conversion tool because
+-- there were no raw SQL statements to convert.
+-- ============================================================================

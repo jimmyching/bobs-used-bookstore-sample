@@ -14,7 +14,7 @@ public class DatabaseStackProps : StackProps
 
 public class DatabaseStack : Stack
 {
-    private const int DatabasePort = 1433;
+    private const int DatabasePort = 5432;
 
     public DatabaseInstance Database { get; set; }
 
@@ -23,21 +23,21 @@ public class DatabaseStack : Stack
         var dbSG = new SecurityGroup(this, "DatabaseSecurityGroup", new SecurityGroupProps
         {
             Vpc = props.Vpc,
-            Description = "Allow access to the SQL Server instance from the website",
+            Description = "Allow access to the PostgreSQL instance from the website",
         });
 
-        this.Database = new DatabaseInstance(this, $"{Constants.AppName}SqlDb", new DatabaseInstanceProps
+        this.Database = new DatabaseInstance(this, $"{Constants.AppName}PostgresDb", new DatabaseInstanceProps
         {
             Vpc = props.Vpc,
             VpcSubnets = new SubnetSelection
             {
                 SubnetType = SubnetType.PRIVATE_WITH_EGRESS
             },
-            // SQL Server 2017 Express Edition, in conjunction with a db.t2.micro instance type,
+            // PostgreSQL 13, in conjunction with a db.t3.micro instance type,
             // fits inside the free tier for new accounts
-            Engine = DatabaseInstanceEngine.SqlServerEx(new SqlServerExInstanceEngineProps
+            Engine = DatabaseInstanceEngine.Postgres(new PostgresInstanceEngineProps
             {
-                Version = SqlServerEngineVersion.VER_14
+                Version = PostgresEngineVersion.VER_13
             }),
             StorageType = StorageType.GP3,
             AllocatedStorage = 20,            
